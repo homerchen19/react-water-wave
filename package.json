@@ -1,14 +1,20 @@
 {
-  "name": "react-water-effect",
-  "description": "react-water-effect React component",
+  "name": "react-water-wave",
+  "description": "react-water-wave React component",
   "license": "MIT",
   "author": "xxhomey19",
-  "homepage": "",
-  "repository": "",
+  "homepage": "https://github.com/xxhomey19/react-water-wave#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xxhomey19/react-water-wave.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xxhomey19/react-water-wave/issues"
+  },
   "version": "0.0.1",
   "main": "lib/index.js",
   "scripts": {
-    "build": "nwb build-react-component",
+    "build": "npm run clean && nwb build-react-component",
     "clean": "nwb clean-module && nwb clean-demo",
     "precommit": "lint-staged",
     "lint": "eslint src/** demo/**",
@@ -21,8 +27,11 @@
     "preversion": "npm test"
   },
   "dependencies": {
+    "clean-react-props": "^0.2.8",
     "jquery": "^3.3.1",
     "jquery.ripples": "^0.6.2",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.2",
     "react-dom": "^16.4.2"
   },
   "peerDependencies": {
@@ -42,7 +51,9 @@
     "lint-staged": "^7.2.2",
     "nwb": "0.23.x",
     "prettier": "^1.14.2",
-    "prettier-package-json": "^2.0.0"
+    "prettier-package-json": "^2.0.0",
+    "react-github-corner": "^2.3.0",
+    "react-linear-gradient-button": "^1.1.1"
   },
   "keywords": [
     "react-component"
