@@ -1,38 +1,60 @@
 {
   "name": "react-water-effect",
-  "version": "1.0.0",
   "description": "react-water-effect React component",
+  "license": "MIT",
+  "author": "xxhomey19",
+  "homepage": "",
+  "repository": "",
+  "version": "0.0.1",
   "main": "lib/index.js",
-  "module": "es/index.js",
-  "files": [
-    "css",
-    "es",
-    "lib",
-    "umd"
-  ],
   "scripts": {
     "build": "nwb build-react-component",
     "clean": "nwb clean-module && nwb clean-demo",
+    "precommit": "lint-staged",
+    "lint": "eslint src/** demo/**",
+    "lint:fix": "npm run lint -- --fix",
     "prepublishOnly": "npm run build",
     "start": "nwb serve-react-demo",
     "test": "nwb test-react",
     "test:coverage": "nwb test-react --coverage",
-    "test:watch": "nwb test-react --server"
+    "test:watch": "nwb test-react --server",
+    "preversion": "npm test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "jquery.ripples": "^0.6.2",
+    "react-dom": "^16.4.2"
+  },
   "peerDependencies": {
     "react": "16.x"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.2",
     "nwb": "0.23.x",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2"
+    "prettier": "^1.14.2",
+    "prettier-package-json": "^2.0.0"
   },
-  "author": "",
-  "homepage": "",
-  "license": "MIT",
-  "repository": "",
   "keywords": [
     "react-component"
-  ]
+  ],
+  "lint-staged": {
+    "package.json": [
+      "prettier-package-json --write",
+      "git add"
+    ],
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  }
 }
