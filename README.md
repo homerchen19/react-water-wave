@@ -2,10 +2,14 @@
 
 [![npm package][npm-badge]][npm]
 
-<img width="1440" alt="screen shot 2018-08-16 at 01 22 16" src="https://user-images.githubusercontent.com/12113222/44156457-3fe9509e-a0f3-11e8-9eb3-c045a3323506.png">
+<a href="https://xxhomey19.github.io/react-water-wave/" target="_blank"><img width="1440" alt="screen shot 2018-08-16 at 01 22 16" src="https://user-images.githubusercontent.com/12113222/44156457-3fe9509e-a0f3-11e8-9eb3-c045a3323506.png"></a>
 
 > This is a React wrapper for [sirxemic/jquery.ripples](https://github.com/sirxemic/jquery.ripples)<br />
-> It's so cool!
+> It's so cool!<br />
+
+[**DEMO**](https://xxhomey19.github.io/react-water-wave/)
+
+This project was bootstrapped with [nwb](https://github.com/insin/nwb).
 
 # Install
 
@@ -35,7 +39,9 @@ const App = () => (
 render(<App />, document.querySelector('#root'));
 ```
 
-## Props
+Check [demo folder](https://github.com/xxhomey19/react-water-wave/tree/master/demo/src) for more complete example.
+
+# Props
 
 Modified from [sirxemic/jquery.ripples#options](https://github.com/sirxemic/jquery.ripples#options)
 
@@ -52,7 +58,7 @@ Modified from [sirxemic/jquery.ripples#options](https://github.com/sirxemic/jque
 
 Other props will be passed to the `<div>` wrapper which is the root DOM element.
 
-## Children Functions
+# Children Functions
 
 By using [Render Props](https://reactjs.org/docs/render-props.html) pattern to provide the plguin's methods, make sure `Children` is a function that receives an object as its only argument.
 
