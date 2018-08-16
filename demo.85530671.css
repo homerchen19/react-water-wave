@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'Lobster';
+  src: url(Lobster-Regular.9b458667.ttf) format('truetype');
+}
+
+#demo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  height: 50%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 8px;
+  background: hsla(0, 0%, 100%, 0.5);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0px 0px 6px black;
+          box-shadow: 0px 0px 6px black;
+  font-family: 'Lobster', cursive, Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+.button {
+  width: 20%;
+  margin: 10px 0;
+}
+
+
+/*# sourceMappingURL=demo.85530671.css.map*/
