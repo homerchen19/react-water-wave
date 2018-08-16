@@ -34,7 +34,19 @@ class WaterEffect extends Component {
     this.target.ripples('destroy');
   };
 
-  drop = ({ x, y, radius, strength }) => {
+  drop = (
+    {
+      x = undefined,
+      y = undefined,
+      radius = undefined,
+      strength = undefined,
+    } = {
+      x: undefined,
+      y: undefined,
+      radius: undefined,
+      strength: undefined,
+    }
+  ) => {
     this.target.ripples('drop', x, y, radius, strength);
   };
 
@@ -46,7 +58,20 @@ class WaterEffect extends Component {
     this.target.ripples('play');
   };
 
-  set = ({ property, value }) => {
+  hide = () => {
+    this.target.ripples('hide');
+  };
+
+  show = () => {
+    this.target.ripples('show');
+  };
+
+  set = (
+    { property = undefined, value = undefined } = {
+      property: undefined,
+      value: undefined,
+    }
+  ) => {
     this.target.ripples('set', property, value);
   };
 
@@ -68,6 +93,8 @@ class WaterEffect extends Component {
           destroy: this.destroy,
           pause: this.pause,
           play: this.play,
+          hide: this.hide,
+          show: this.show,
           drop: this.drop,
           set: this.set,
           updateSize: this.updateSize,

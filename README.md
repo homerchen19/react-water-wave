@@ -6,7 +6,7 @@
 
 <img width="1440" alt="screen shot 2018-08-16 at 01 22 16" src="https://user-images.githubusercontent.com/12113222/44156457-3fe9509e-a0f3-11e8-9eb3-c045a3323506.png">
 
-> This is a React wrapper for [sirxemic/jquery.ripples](https://github.com/sirxemic/jquery.ripples)
+> This is a React wrapper for [sirxemic/jquery.ripples](https://github.com/sirxemic/jquery.ripples)<br />
 > It's so cool!
 
 # Install
@@ -58,11 +58,11 @@ Other props will be passed to the `<div>` wrapper which is the root DOM element.
 
 By using [Render Props](https://reactjs.org/docs/render-props.html) pattern to provide the plguin's methods, make sure `Children` is a function that receives an object as its only argument.
 
-#### Methods
+### Methods
 
 Modified from [sirxemic/jquery.ripples#methods](https://github.com/sirxemic/jquery.ripples#methods)
 
-| method     | parameters                                                 | description                                                                                                                                                                                                                                                                                                                                      |
+| Method     | Parameters                                                 | Description                                                                                                                                                                                                                                                                                                                                      |
 | ---------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | pause      | none                                                       | Pause the simulation.                                                                                                                                                                                                                                                                                                                            |
 | play       | none                                                       | Play the simulation.                                                                                                                                                                                                                                                                                                                             |
