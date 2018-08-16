@@ -1,8 +1,6 @@
 # react-water-wave
 
-[![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
-[![Coveralls][coveralls-badge]][coveralls]
 
 <img width="1440" alt="screen shot 2018-08-16 at 01 22 16" src="https://user-images.githubusercontent.com/12113222/44156457-3fe9509e-a0f3-11e8-9eb3-c045a3323506.png">
 
@@ -73,9 +71,9 @@ Modified from [sirxemic/jquery.ripples#methods](https://github.com/sirxemic/jque
 | set        | `{ property: string, value }`                              | `propertity` should be one of:<br /> - `dropRadius`<br /> - `perturbance`<br /> - `interactive`<br /> - `imageUrl`: setting the image URL will update the background image used for the effect, but the `background-image` CSS property will be untouched.<br /> - `dropRadius`: setting this won't have any effect until `imageUrl` is changed. |
 | updateSize | none                                                       | The effect resizes automatically when the width or height of the window changes. When the dimensions of the element changes, you need to call `updateSize` to update the size of the effect accordingly.                                                                                                                                         |
 
-[build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
-[build]: https://travis-ci.org/user/repo
 [npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
-[npm]: https://www.npmjs.org/package/npm-package
-[coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
-[coveralls]: https://coveralls.io/github/user/repo
+[npm]: https://www.npmjs.org/package/react-water-wave
+
+## License
+
+MIT © [xxhomey19](https://github.com/xxhomey19)

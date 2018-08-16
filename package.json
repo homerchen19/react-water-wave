@@ -1,6 +1,6 @@
 {
   "name": "react-water-wave",
-  "description": "react-water-wave React component",
+  "description": "React wrapper for jquery.ripples, a water ripple effect to your background.",
   "license": "MIT",
   "author": "xxhomey19",
   "homepage": "https://github.com/xxhomey19/react-water-wave#readme",
@@ -22,9 +22,6 @@
     "lint:fix": "npm run lint -- --fix",
     "prepublishOnly": "npm run build",
     "start": "nwb serve-react-demo",
-    "test": "nwb test-react",
-    "test:coverage": "nwb test-react --coverage",
-    "test:watch": "nwb test-react --server",
     "preversion": "npm test"
   },
   "dependencies": {
