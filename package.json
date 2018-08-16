@@ -58,7 +58,9 @@
     "react-linear-gradient-button": "^1.1.1"
   },
   "keywords": [
-    "react-component"
+    "react",
+    "ripple",
+    "water wave"
   ],
   "lint-staged": {
     "package.json": [
