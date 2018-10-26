@@ -1,11 +1,14 @@
-import React, { Component } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cleanProps from 'clean-react-props';
 import $ from 'jquery';
 import 'jquery.ripples';
 
-class WaterEffect extends Component {
-  componentDidMount() {
+const WaterEffect = props => {
+  const rippleRef = useRef();
+  const target = useRef({ ripples: () => {} });
+
+  useEffect(() => {
     const {
       imageUrl,
       dropRadius,
@@ -13,10 +16,10 @@ class WaterEffect extends Component {
       resolution,
       interactive,
       crossOrigin,
-    } = this.props;
-    this.target = $(this.el);
+    } = props;
+    target.current = $(rippleRef.current);
 
-    this.target.ripples({
+    target.current.ripples({
       imageUrl,
       dropRadius,
       perturbance,
@@ -24,17 +27,13 @@ class WaterEffect extends Component {
       interactive,
       crossOrigin,
     });
-  }
 
-  componentWillUnmount() {
-    this.target.ripples('destroy');
-  }
+    return () => target.current.ripples('destroy');
+  }, []);
 
-  destroy = () => {
-    this.target.ripples('destroy');
-  };
+  const destroy = target.current.ripples('destroy');
 
-  drop = (
+  const drop = (
     {
       x = undefined,
       y = undefined,
@@ -47,62 +46,54 @@ class WaterEffect extends Component {
       strength: undefined,
     }
   ) => {
-    this.target.ripples('drop', x, y, radius, strength);
+    target.current.ripples('drop', x, y, radius, strength);
   };
 
-  pause = () => {
-    this.target.ripples('pause');
+  const pause = () => {
+    target.current.ripples('pause');
   };
 
-  play = () => {
-    this.target.ripples('play');
+  const play = () => {
+    target.current.ripples('play');
   };
 
-  hide = () => {
-    this.target.ripples('hide');
+  const hide = () => {
+    target.current.ripples('hide');
   };
 
-  show = () => {
-    this.target.ripples('show');
+  const show = () => {
+    target.current.ripples('show');
   };
 
-  set = (
+  const set = (
     { property = undefined, value = undefined } = {
       property: undefined,
       value: undefined,
     }
   ) => {
-    this.target.ripples('set', property, value);
+    target.current.ripples('set', property, value);
   };
 
-  updateSize = () => {
-    this.target.ripples('updateSize');
+  const updateSize = () => {
+    target.current.ripples('updateSize');
   };
 
-  render() {
-    const { children } = this.props;
-
-    return (
-      <div
-        ref={el => {
-          this.el = el;
-        }}
-        {...cleanProps(this.props)}
-      >
-        {children({
-          destroy: this.destroy,
-          pause: this.pause,
-          play: this.play,
-          hide: this.hide,
-          show: this.show,
-          drop: this.drop,
-          set: this.set,
-          updateSize: this.updateSize,
-        })}
-      </div>
-    );
-  }
-}
+  const { children } = props;
+  return (
+    <div ref={rippleRef} {...cleanProps(props)}>
+      {children({
+        destroy,
+        pause,
+        play,
+        hide,
+        show,
+        drop,
+        set,
+        updateSize,
+      })}
+    </div>
+  );
+};
 
 WaterEffect.propTypes = {
   imageUrl: PropTypes.string,
