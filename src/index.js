@@ -4,19 +4,18 @@ import cleanProps from 'clean-react-props';
 import $ from 'jquery';
 import 'jquery.ripples';
 
-const WaterEffect = props => {
-  const rippleRef = useRef();
+const useTarget = ({
+  imageUrl,
+  dropRadius,
+  perturbance,
+  resolution,
+  interactive,
+  crossOrigin,
+  rippleRef,
+}) => {
   const target = useRef({ ripples: () => {} });
 
   useEffect(() => {
-    const {
-      imageUrl,
-      dropRadius,
-      perturbance,
-      resolution,
-      interactive,
-      crossOrigin,
-    } = props;
     target.current = $(rippleRef.current);
 
     target.current.ripples({
@@ -78,9 +77,43 @@ const WaterEffect = props => {
     target.current.ripples('updateSize');
   };
 
-  const { children } = props;
+  return {
+    destroy,
+    pause,
+    play,
+    hide,
+    show,
+    drop,
+    set,
+    updateSize,
+  };
+};
+
+const WaterEffect = ({
+  imageUrl,
+  dropRadius,
+  perturbance,
+  resolution,
+  interactive,
+  crossOrigin,
+  children,
+  ...otherProps
+}) => {
+  const rippleRef = useRef();
+  const { destroy, pause, play, hide, show, drop, set, updateSize } = useTarget(
+    {
+      imageUrl,
+      dropRadius,
+      perturbance,
+      resolution,
+      interactive,
+      crossOrigin,
+      rippleRef,
+    }
+  );
+
   return (
-    <div ref={rippleRef} {...cleanProps(props)}>
+    <div ref={rippleRef} {...cleanProps(otherProps)}>
       {children({
         destroy,
         pause,
