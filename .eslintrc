@@ -17,6 +17,7 @@
     "react/prefer-stateless-function": "off",
     "react/jsx-one-expression-per-line": "off",
     "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "import/no-extraneous-dependencies": "off"
   },
   "plugins": ["react", "babel", "prettier", "react-hooks"]
