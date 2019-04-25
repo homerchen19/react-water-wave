@@ -77,7 +77,7 @@ Modified from [sirxemic/jquery.ripples#methods](https://github.com/sirxemic/jque
 | set        | `{ property: string, value }`                              | `propertity` should be one of:<br /> - `dropRadius`<br /> - `perturbance`<br /> - `interactive`<br /> - `imageUrl`: setting the image URL will update the background image used for the effect, but the `background-image` CSS property will be untouched.<br /> - `dropRadius`: setting this won't have any effect until `imageUrl` is changed. |
 | updateSize | none                                                       | The effect resizes automatically when the width or height of the window changes. When the dimensions of the element changes, you need to call `updateSize` to update the size of the effect accordingly.                                                                                                                                         |
 
-[npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
+[npm-badge]: https://img.shields.io/npm/v/react-water-wave.svg
 [npm]: https://www.npmjs.org/package/react-water-wave
 
 ## License
