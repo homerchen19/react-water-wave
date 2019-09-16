@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/xxhomey19/react-water-wave/issues"
   },
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "lib/index.js",
   "files": [
     "lib"
@@ -28,43 +28,43 @@
     "start": "nwb serve-react-demo"
   },
   "dependencies": {
-    "clean-react-props": "^0.2.12",
-    "jquery": "^3.4.0",
-    "jquery.ripples": "^0.6.2",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "clean-react-props": "^0.3.3",
+    "jquery": "^3.4.1",
+    "jquery.ripples": "^0.6.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "peerDependencies": {
     "react": "^16.8.2",
     "react-dom": "^16.8.2"
   },
   "devDependencies": {
-    "@types/jquery": "^3.3.29",
-    "@types/node": "^11.13.7",
-    "@types/prop-types": "^15.7.1",
-    "@types/react": "^16.8.14",
-    "@types/react-dom": "^16.8.4",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react": "^7.12.4",
-    "eslint-plugin-react-hooks": "^1.6.0",
-    "gh-pages": "^2.0.1",
-    "husky": "^2.1.0",
-    "lint-staged": "^8.1.5",
+    "@types/jquery": "^3.3.31",
+    "@types/node": "^12.7.5",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@typescript-eslint/eslint-plugin": "1.x",
+    "@typescript-eslint/parser": "1.x",
+    "babel-eslint": "10.x",
+    "babel-plugin-typescript-to-proptypes": "^0.17.1",
+    "eslint": "6.x",
+    "eslint-config-react-app": "^5.0.1",
+    "eslint-plugin-flowtype": "3.x",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "1.x",
+    "gh-pages": "^2.1.1",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.2.5",
     "nwb": "0.23.x",
-    "prettier": "^1.17.0",
+    "prettier": "^1.18.2",
     "prettier-package-json": "^2.1.0",
     "react-github-corner": "^2.3.0",
     "react-linear-gradient-button": "^1.1.1",
-    "ts-loader": "^5.4.3",
-    "typescript": "^3.4.5"
+    "ts-loader": "^6.1.0",
+    "typescript": "^3.6.3"
   },
   "keywords": [
     "react",
