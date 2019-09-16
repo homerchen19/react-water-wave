@@ -1,10 +1,9 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import cleanProps from 'clean-react-props';
 import * as $ from 'jquery';
 import 'jquery.ripples';
 
-interface RipplesOptions {
+export interface RipplesOptions {
   imageUrl?: string;
   dropRadius?: number;
   perturbance?: number;
@@ -13,31 +12,34 @@ interface RipplesOptions {
   crossOrigin?: string;
 }
 
-interface Props extends RipplesOptions {
+export type SetProperties =
+  | 'dropRadius'
+  | 'perturbance'
+  | 'interactive'
+  | 'imageUrl'
+  | 'crossOrigin';
+
+export type Drop = {
+  x: number;
+  y: number;
+  radius: number;
+  strength: number;
+};
+
+export type Set = {
+  property: SetProperties;
+  value: any;
+};
+
+export interface Props extends RipplesOptions {
   children: (props: {
     destroy: () => void;
     pause: () => void;
     play: () => void;
     hide: () => void;
     show: () => void;
-    drop: ({
-      x,
-      y,
-      radius,
-      strength,
-    }?: {
-      x?: undefined;
-      y?: undefined;
-      radius?: undefined;
-      strength?: undefined;
-    }) => void;
-    set: ({
-      property,
-      value,
-    }?: {
-      property?: undefined;
-      value?: undefined;
-    }) => void;
+    drop: ({ x, y, radius, strength }: Drop) => void;
+    set: ({ property, value }: Set) => void;
     updateSize: () => void;
   }) => React.ReactNode;
   [key: string]: any;
@@ -81,26 +83,24 @@ const useRipples = ({
       crossOrigin,
     });
 
-    return () => target.current.ripples('destroy');
-  }, []);
+    return () => {
+      target.current.ripples('destroy');
+    };
+  }, [
+    crossOrigin,
+    dropRadius,
+    imageUrl,
+    interactive,
+    perturbance,
+    resolution,
+    rippleRef,
+  ]);
 
   const destroy = () => {
     target.current.ripples('destroy');
   };
 
-  const drop = (
-    {
-      x = undefined,
-      y = undefined,
-      radius = undefined,
-      strength = undefined,
-    } = {
-      x: undefined,
-      y: undefined,
-      radius: undefined,
-      strength: undefined,
-    }
-  ) => {
+  const drop = ({ x, y, radius, strength }: Drop) => {
     target.current.ripples('drop', x, y, radius, strength);
   };
 
@@ -120,12 +120,7 @@ const useRipples = ({
     target.current.ripples('show');
   };
 
-  const set = (
-    { property = undefined, value = undefined } = {
-      property: undefined,
-      value: undefined,
-    }
-  ) => {
+  const set = ({ property, value }: Set) => {
     target.current.ripples('set', property, value);
   };
 
@@ -189,16 +184,6 @@ const WaterEffect = ({
       })}
     </div>
   );
-};
-
-WaterEffect.propTypes = {
-  imageUrl: PropTypes.string,
-  dropRadius: PropTypes.number,
-  perturbance: PropTypes.number,
-  resolution: PropTypes.number,
-  interactive: PropTypes.bool,
-  crossOrigin: PropTypes.string,
-  children: PropTypes.func,
 };
 
 WaterEffect.defaultProps = {

@@ -1,4 +1,5 @@
 /* eslint-disable no-param-reassign */
+
 module.exports = {
   type: 'react-component',
   npm: {
@@ -6,6 +7,9 @@ module.exports = {
     umd: false,
   },
   polyfill: false,
+  babel: {
+    plugins: 'babel-plugin-typescript-to-proptypes',
+  },
   webpack: {
     config(config) {
       config.entry = {
