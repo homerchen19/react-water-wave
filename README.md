@@ -2,12 +2,12 @@
 
 [![npm package][npm-badge]][npm]
 
-<a href="https://xxhomey19.github.io/react-water-wave/" target="_blank"><img width="1440" alt="screen shot 2018-08-16 at 01 22 16" src="https://user-images.githubusercontent.com/12113222/44156457-3fe9509e-a0f3-11e8-9eb3-c045a3323506.png"></a>
+<a href="https://homerchen19.github.io/react-water-wave/" target="_blank"><img width="1440" alt="screen shot 2018-08-16 at 01 22 16" src="https://user-images.githubusercontent.com/12113222/44156457-3fe9509e-a0f3-11e8-9eb3-c045a3323506.png"></a>
 
 > This is a React wrapper for [sirxemic/jquery.ripples](https://github.com/sirxemic/jquery.ripples)<br />
 > It's so cool!<br />
 
-[**DEMO**](https://xxhomey19.github.io/react-water-wave/)
+[**DEMO**](https://homerchen19.github.io/react-water-wave/)
 
 This project was bootstrapped with [nwb](https://github.com/insin/nwb).
 
@@ -39,7 +39,7 @@ const App = () => (
 render(<App />, document.querySelector('#root'));
 ```
 
-Check [demo folder](https://github.com/xxhomey19/react-water-wave/tree/master/demo/src) for more complete example.
+Check [demo folder](https://github.com/homerchen19/react-water-wave/tree/master/demo/src) for more complete example.
 
 # Props
 
@@ -82,4 +82,4 @@ Modified from [sirxemic/jquery.ripples#methods](https://github.com/sirxemic/jque
 
 ## License
 
-MIT © [xxhomey19](https://github.com/xxhomey19)
+MIT © [homerchen19](https://github.com/homerchen19)
