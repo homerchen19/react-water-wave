@@ -1,5 +1,5 @@
 declare module 'react-linear-gradient-button' {
-  import * as React from './node_modules/react';
+  import type React from 'react';
 
   export interface LinearGradientButtonProps {
     children: React.ReactNode;

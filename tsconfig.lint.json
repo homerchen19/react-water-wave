@@ -1,0 +1,7 @@
+{
+  "extends": "@vercel/style-guide/typescript",
+  "compilerOptions": {
+    "typeRoots": ["./node_modules/@types", "./interfaces"]
+  },
+  "exclude": ["node_modules", "lib"]
+}

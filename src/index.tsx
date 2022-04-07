@@ -1,10 +1,10 @@
-import * as React from 'react';
-import cleanProps from 'clean-react-props';
+import { useEffect, useRef } from 'react';
 import * as $ from 'jquery';
+import type { ReactNode, RefObject } from 'react';
 import 'jquery.ripples';
 
 export interface RipplesOptions {
-  imageUrl?: string;
+  imageUrl: string;
   dropRadius?: number;
   perturbance?: number;
   resolution?: number;
@@ -19,33 +19,40 @@ export type SetProperties =
   | 'imageUrl'
   | 'crossOrigin';
 
-export type Drop = {
+export type Drop = ({
+  x,
+  y,
+  radius,
+  strength,
+}: {
   x: number;
   y: number;
   radius: number;
   strength: number;
-};
+}) => void;
 
-export type Set = {
+export type Set = ({
+  property,
+  value,
+}: {
   property: SetProperties;
   value: any;
-};
+}) => void;
 
-export interface Props extends RipplesOptions {
+export interface WaterEffectProps extends RipplesOptions {
   children: (props: {
     destroy: () => void;
     pause: () => void;
     play: () => void;
     hide: () => void;
     show: () => void;
-    drop: ({ x, y, radius, strength }: Drop) => void;
-    set: ({ property, value }: Set) => void;
+    drop: Drop;
+    set: Set;
     updateSize: () => void;
-  }) => React.ReactNode;
-  [key: string]: any;
+  }) => ReactNode;
 }
 
-type ripplesArgument =
+export type RipplesArgument =
   | 'destroy'
   | 'drop'
   | 'pause'
@@ -56,7 +63,7 @@ type ripplesArgument =
   | 'updateSize'
   | RipplesOptions;
 
-const useRipples = ({
+export const useRipples = ({
   imageUrl,
   dropRadius,
   perturbance,
@@ -65,13 +72,13 @@ const useRipples = ({
   crossOrigin,
   rippleRef,
 }: RipplesOptions & {
-  rippleRef: React.RefObject<HTMLDivElement>;
+  rippleRef: RefObject<HTMLDivElement>;
 }) => {
-  const target = React.useRef({
-    ripples: (_arg: ripplesArgument, ..._args: any[]) => {},
+  const target = useRef({
+    ripples: (_arg: RipplesArgument, ..._args: any[]) => {},
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     target.current = $(rippleRef.current as any) as any;
 
     target.current.ripples({
@@ -100,7 +107,7 @@ const useRipples = ({
     target.current.ripples('destroy');
   };
 
-  const drop = ({ x, y, radius, strength }: Drop) => {
+  const drop: Drop = ({ x, y, radius, strength }) => {
     target.current.ripples('drop', x, y, radius, strength);
   };
 
@@ -120,7 +127,7 @@ const useRipples = ({
     target.current.ripples('show');
   };
 
-  const set = ({ property, value }: Set) => {
+  const set: Set = ({ property, value }) => {
     target.current.ripples('set', property, value);
   };
 
@@ -140,38 +147,30 @@ const useRipples = ({
   };
 };
 
-const WaterEffect = ({
-  imageUrl,
-  dropRadius,
-  perturbance,
-  resolution,
-  interactive,
-  crossOrigin,
+function WaterEffect({
+  imageUrl = '',
+  dropRadius = 20,
+  perturbance = 0.03,
+  resolution = 256,
+  interactive = true,
+  crossOrigin = '',
   children,
   ...otherProps
-}: Props) => {
-  const rippleRef = React.useRef<HTMLDivElement>(null);
-  const {
-    destroy,
-    pause,
-    play,
-    hide,
-    show,
-    drop,
-    set,
-    updateSize,
-  } = useRipples({
-    imageUrl,
-    dropRadius,
-    perturbance,
-    resolution,
-    interactive,
-    crossOrigin,
-    rippleRef,
-  });
+}: WaterEffectProps) {
+  const rippleRef = useRef<HTMLDivElement>(null);
+  const { destroy, pause, play, hide, show, drop, set, updateSize } =
+    useRipples({
+      imageUrl,
+      dropRadius,
+      perturbance,
+      resolution,
+      interactive,
+      crossOrigin,
+      rippleRef,
+    });
 
   return (
-    <div ref={rippleRef} {...cleanProps(otherProps)}>
+    <div ref={rippleRef} {...otherProps}>
       {children({
         destroy,
         pause,
@@ -184,16 +183,6 @@ const WaterEffect = ({
       })}
     </div>
   );
-};
-
-WaterEffect.defaultProps = {
-  imageUrl: '',
-  dropRadius: 20,
-  perturbance: 0.03,
-  resolution: 256,
-  interactive: true,
-  crossOrigin: '',
-  children: () => {},
-};
+}
 
 export default WaterEffect;
