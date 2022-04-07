@@ -1,6 +1,6 @@
 {
   "name": "react-water-wave",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "React wrapper for jquery.ripples, a water ripple effect to your background.",
   "license": "MIT",
   "author": "homerchen19",
