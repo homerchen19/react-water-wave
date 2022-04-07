@@ -4,7 +4,7 @@
     "target": "es5",
     "module": "commonjs",
     "lib": ["es6", "dom"],
-    "jsx": "react",
+    "jsx": "react-jsx",
     "moduleResolution": "node",
     "strict": true,
     "allowSyntheticDefaultImports": true,
@@ -14,8 +14,7 @@
     "removeComments": false,
     "preserveConstEnums": true,
     "sourceMap": true,
-    "typeRoots": ["./node_modules/@types", "./interfaces"]
+    "typeRoots": ["./node_modules/@types", "./demo/@types"]
   },
-  "include": ["src/**/*.tsx"],
   "exclude": ["node_modules", "lib"]
 }
