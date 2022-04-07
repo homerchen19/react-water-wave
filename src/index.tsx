@@ -39,7 +39,9 @@ export type Set = ({
   value: any;
 }) => void;
 
-export interface WaterEffectProps extends RipplesOptions {
+export interface WaterEffectProps
+  extends RipplesOptions,
+    React.ComponentPropsWithoutRef<'div'> {
   children: (props: {
     destroy: () => void;
     pause: () => void;
